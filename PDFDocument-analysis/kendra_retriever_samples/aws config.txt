@@ -1,0 +1,4 @@
+export AWS_DEFAULT_REGION="us-east-1"
+export AWS_REGION="us-east-1"
+export AWS_PROFILE="default"
+export KENDRA_INDEX_ID="a7f1ff8e-703a-40de-a770-42a096ef85dc"

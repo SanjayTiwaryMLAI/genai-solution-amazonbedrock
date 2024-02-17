@@ -1,0 +1,7 @@
+PyPDF2
+boto3
+streamlit
+IPython
+scikit-learn
+tiktoken
+
