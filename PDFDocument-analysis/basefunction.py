@@ -3,7 +3,7 @@ from PyPDF2 import PdfReader
 import boto3
 import json
 from IPython.display import display_markdown,Markdown,clear_output
-#import credential
+import credential
 import tiktoken
 import base64
 import streamlit as st
@@ -252,10 +252,26 @@ def detect_entity(text):
     result = comprehend.detect_entities(Text=text, LanguageCode='en')
     return result.get('Entities')
 
-#create function to send the response to S3 bucket
-def send_response_to_s3(response):
+# #create function to send the response to S3 bucket
+# def send_response_to_s3(response):
+#     #convert byte to string
+#     response = response
+#     s3 = boto3.client('s3', region_name='us-east-1',)
+#     s3.put_object(Body=response, Bucket='opensearchdemosanjay', Key='response.txt')
+
+# import boto3
+
+def send_response_to_s3(local_file_path, bucket_name, s3_file_name):
+    
     s3 = boto3.client('s3')
-    s3.put_object(Body=response, Bucket='document-tender', Key='response.txt')
+    try:
+        s3.upload_file(local_file_path, bucket_name, s3_file_name)
+        print(f"File {local_file_path} uploaded to S3 bucket {bucket_name} as {s3_file_name}")
+        
+    except Exception as e:
+        print(f"Error uploading file: {e}")
+    return f"https://{bucket_name}.s3.amazonaws.com/{s3_file_name}"
+
 
 #create function to convert text to speech using Polly
 def text_to_speech(text):

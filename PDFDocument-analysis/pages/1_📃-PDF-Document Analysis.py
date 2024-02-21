@@ -6,8 +6,10 @@ from basefunction import detect_sentiment
 from basefunction import mask_pii
 from basefunction import count_tokens
 from basefunction import detect_entity
-from basefunction import send_response_to_s3, text_to_speech
+from basefunction import send_response_to_s3
+from basefunction import text_to_speech
 from printcloud import print_wordcloud
+
 import numpy as np
 import streamlit as st
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -135,10 +137,17 @@ with tab2:
    ask_button = st.button("Send to S3")
    if ask_button:
         with open("response.txt", "r") as f:
+
                 response = f.read()
                 f.close()
-        res = send_response_to_s3(response)
+
+        local_file_path = 'response.txt'  # Path to your local file
+        bucket_name = 'opensearchdemosanjay'  # Name of your S3 bucket
+        s3_file_name = 'response.txt'  # Name you want to give the file in the S3 bucket
+
+        path= send_response_to_s3(local_file_path, bucket_name, s3_file_name)
         st.success("Response sent to S3")
+        st.write("file is coped to-", path)
 
 with tab3:
     ask_button = st.button("Get Sentiment")
