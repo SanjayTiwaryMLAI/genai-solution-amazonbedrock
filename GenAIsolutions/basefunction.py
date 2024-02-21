@@ -9,7 +9,14 @@ import base64
 import streamlit as st
 
 #accesskey, secretkey = credential.acceskey()  
- 
+st.title("🔎  RAG implemented using Opensearch and Bedrock" )
+
+st.sidebar.title("RAG developed using Opensearch and Bedrock")
+st.sidebar.caption("LLM- Anthropic Claude2")
+st.sidebar.text("How is Amazon performed during Covid19")
+st.sidebar.text("What are various challenges Amazon faced")
+
+
 boto3_bedrock = boto3.client('bedrock', region_name='us-east-1')
 bedrock_runtime = boto3.client('bedrock-runtime',region_name='us-east-1')
 ##boto3_bedrock = boto3.client('bedrock', region_name='us-east-1', aws_access_key_id= accesskey,aws_secret_access_key=secretkey)
