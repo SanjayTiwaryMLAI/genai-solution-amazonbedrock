@@ -7,5 +7,5 @@ pip install -r requirements.txt
 
 2. run python code for running streamlit application
 ```bash
-streamlit run analysis.py 
+streamlit run WelcomePage.py
 ```
