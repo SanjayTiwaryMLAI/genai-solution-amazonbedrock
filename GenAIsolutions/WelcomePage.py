@@ -1,9 +1,10 @@
 import streamlit as st
 import sklearn
 
+
 st.set_page_config(
     page_title="Hello",
-    page_icon="👋",
+    page_icon="👋",layout="wide"
 )
 
 st.write("# 🚀 Welcome to Generative AI Demo using Amazon Bedrock! 👋")

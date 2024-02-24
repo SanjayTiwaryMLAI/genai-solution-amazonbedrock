@@ -268,9 +268,9 @@ def detect_entity(text):
 
 # import boto3
 
-def send_response_to_s3(local_file_path, bucket_name, s3_file_name):
+def send_response_to_s3(local_file_path, bucket_name, s3_file_name, region):
     
-    s3 = boto3.client('s3')
+    s3 = boto3.client('s3',region_name=region)
     try:
         s3.upload_file(local_file_path, bucket_name, s3_file_name)
         print(f"File {local_file_path} uploaded to S3 bucket {bucket_name} as {s3_file_name}")

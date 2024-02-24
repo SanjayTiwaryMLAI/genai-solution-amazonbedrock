@@ -66,7 +66,7 @@ col1, col2 = st.columns(2)
 
 #define col1
 with col1:
-    max_token = st.number_input("Enter the max token", min_value=1, max_value=2000, value=500, step=10)
+    max_token = st.number_input("Enter the max token", min_value=1, max_value=20000, value=500, step=10)
     st.write('Current value of max_tokens_to_sample is', max_token)
 # create a button to enter value for max token in integer
 with col2:
@@ -141,11 +141,12 @@ with tab2:
                 response = f.read()
                 f.close()
 
-        local_file_path = 'response.txt'  # Path to your local file
+        local_file_path = response  # Path to your local file
         bucket_name = 'opensearchdemosanjay'  # Name of your S3 bucket
-        s3_file_name = 'response.txt'  # Name you want to give the file in the S3 bucket
+        s3_file_name = 'response.txt'
+        region= "us-east-1"  # Name you want to give the file in the S3 bucket
 
-        path= send_response_to_s3(local_file_path, bucket_name, s3_file_name)
+        path= send_response_to_s3(local_file_path, bucket_name, s3_file_name, region)
         st.success("Response sent to S3")
         st.write("file is coped to-", path)
 

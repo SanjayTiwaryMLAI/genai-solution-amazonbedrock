@@ -9,12 +9,11 @@ from langchain.prompts import PromptTemplate
 from langchain.llms.bedrock import Bedrock
 import boto3
 import streamlit as st
-st. set_page_config(layout="wide") 
+#st. set_page_config(layout="centered") 
 
 st.title("🔎  RAG implemented using Opensearch and Bedrock" )
-
 st.sidebar.title("RAG developed using Opensearch and Bedrock")
-st.sidebar.caption("LLM- Anthropic Claude2")
+st.sidebar.caption("LLMs- Anthropic Claude2")
 st.sidebar.text("How is Amazon performed during Covid19")
 st.sidebar.text("What are various challenges Amazon faced")
 
@@ -82,7 +81,7 @@ def main():
     opensearch_vector_search_client = create_opensearch_vector_search_client(index_name, opensearch_password, bedrock_embeddings_client, opensearch_endpoint)
     
     #ask question from streamlit ui
-    st.title("Ask a question")
+    #st.title("Ask a question")
     question = st.text_input("Enter your question here:")
     # if st.button("Submit"):
     #     question = question1
