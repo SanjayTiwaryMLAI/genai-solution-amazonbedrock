@@ -4,5 +4,4 @@ streamlit
 IPython
 scikit-learn
 tiktoken
-wordcloud
 

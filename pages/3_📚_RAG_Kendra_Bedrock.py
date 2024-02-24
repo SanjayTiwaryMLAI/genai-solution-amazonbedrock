@@ -5,7 +5,7 @@ from basefunction import send_response_to_s3
 
 import kendra_retriever_samples.kendra_chat_bedrock_claudev2 as bedrock_claudev2
 
-st. set_page_config(layout="centered", ) 
+#st. set_page_config(layout="centered", ) 
 
 st.title("🔎 GEN AI based search using RAG" )
 
