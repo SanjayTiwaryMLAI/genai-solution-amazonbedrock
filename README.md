@@ -7,5 +7,5 @@ pip install -r requirements.txt
 
 2. run python code for running streamlit application
 ```bash
-streamlit run WelcomePage.py
+streamlit run WelcomePage.py --server.port 8080
 ```

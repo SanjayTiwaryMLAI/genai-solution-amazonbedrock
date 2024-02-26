@@ -4,4 +4,7 @@ streamlit
 IPython
 scikit-learn
 tiktoken
-
+wordcloud
+langchain
+coloredlogs
+opensearch-py
