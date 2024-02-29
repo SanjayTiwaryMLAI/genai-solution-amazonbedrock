@@ -1,20 +1,26 @@
 
 import boto3
-from streamlit_aws_auth import Auth, CognitoUserPoolAuthorizer
+from streamlit_cognito_auth import CognitoAuthenticator
 
 # Initialize Cognito authentication
-cog_auth = CognitoUserPoolAuthorizer(
-    user_pool_id="my_user_pool_id", 
+cog_auth = CognitoAuthenticator(user_pool_id="my_user_pool_id", 
     user_pool_client_id="6avbau3bonk5478jml3hft5t9a",
-    region="us-east-1"
-)
+    region="us-east-1", )
 
+auth = cog_auth.authenticate()
 # Create the Auth object
-auth = Auth(
-    authorizers=[cog_auth], 
-    on_failure_redirect_to_authorization_url=True,
-    authorization_url=cog_auth.authorization_url
-)
+# auth = Auth(
+#     authorizers=[cog_auth], 
+#     on_failure_redirect_to_authorization_url=True,
+#     authorization_url=cog_auth.authorization_url
+# )
+
+export POOL_ID="your_pool_id"
+export APP_CLIENT_ID="6avbau3bonk5478jml3hft5t9a"
+export APP_CLIENT_SECRET="your_app_client_secret"
+
+cd examples
+streamlit run example.py
 
 # Secure the entire app with Auth 
 def main():

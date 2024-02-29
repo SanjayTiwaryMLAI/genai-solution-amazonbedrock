@@ -8,6 +8,7 @@ cd GenAIsolutions
 
 2. 
 ```bash
+python3 -m venv .llmv
 source .llmv/bin/activate
 .llmv/bin/python
 ```
