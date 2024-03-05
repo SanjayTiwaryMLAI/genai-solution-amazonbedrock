@@ -30,26 +30,40 @@ def build_chain():
     llm = Bedrock(
       credentials_profile_name=credentials_profile_name,
       region_name = region,
-      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"top_k":250,"top_p":0.999,"anthropic_version":"bedrock-2023-05-31"},
+      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
       model_id="anthropic.claude-v2"
     )
   else:
     llm = Bedrock(
       region_name = region,
-      model_kwargs={"max_tokens_to_sample":1000,"temperature":0,"top_k":250,"top_p":0.999,"anthropic_version":"bedrock-2023-05-31"},
+      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
       model_id="anthropic.claude-v2"
     )
       
-  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=5,region_name="ap-south-1")
+  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=6,region_name="ap-south-1")
 
 
-  prompt_template = """Human: This is a friendly conversation between a human and an AI. 
-  The AI is talkative and provides specific details from its context but limits it to 240 tokens.
+  # prompt_template = """Human: This is a friendly conversation between a human and an AI. 
+  # The AI is talkative and provides specific details from its context but limits it to 240 tokens.
+  # If the AI does not know the answer to a question, it truthfully says it 
+  # does not know.
+
+  # Assistant: OK, got it, I'll be a talkative truthful AI assistant.
+
+  # Human: Here are a few documents in <documents> tags:
+  # <documents>
+  # {context}
+  # </documents>
+  # Based on the above documents, provide a detailed answer for, {question} 
+  # Answer "don't know" if not present in the document. 
+
+  # Assistant:
+  # """
+
+
+  prompt_template = """Human: as a expert research analyst for government usecases and please provide information based on the context
   If the AI does not know the answer to a question, it truthfully says it 
   does not know.
-
-  Assistant: OK, got it, I'll be a talkative truthful AI assistant.
-
   Human: Here are a few documents in <documents> tags:
   <documents>
   {context}

@@ -23,3 +23,7 @@ pip install -r requirements.txt
 ```bash
 streamlit run WelcomePage.py --server.port 8080
 ```
+
+5. run python code 
+```bash
+python3 main.py
