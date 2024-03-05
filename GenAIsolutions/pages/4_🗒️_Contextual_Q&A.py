@@ -2,7 +2,7 @@
 from basefunction import claudemodel, pdfuplaodllmmodel
 import streamlit as st
 import io
-st. set_page_config(layout="wide") 
+#st. set_page_config(layout="wide") 
 import streamlit as st
 
 #add sidebar and connect a page

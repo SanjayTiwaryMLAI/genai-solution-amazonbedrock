@@ -5,7 +5,7 @@ from basefunction import send_response_to_s3
 
 import kendra_retriever_samples.kendra_chat_bedrock_claudev2 as bedrock_claudev2
 
-st. set_page_config(layout="centered", ) 
+#st.set_page_config(layout="centered" ) 
 
 st.title("🔎 GEN AI based search using RAG" )
 
@@ -265,7 +265,7 @@ if file is not None:
 #send file to amazon S3
 if file is not None:
     local_file_path = 'pdf_file.pdf'  # Path to your local file
-    bucket_name = 'genaibucketdemomumbai'  # Name of your S3 bucket
+    bucket_name = 'document-tendermum'  # Name of your S3 bucket
     s3_file_name = 'pdf_file.pdf' 
     region = "ap-south-1" # Name you want to give the file in the S3 bucket
 
@@ -274,4 +274,4 @@ if file is not None:
     st.write("file is coped to-", path)
     #s3.upload_file(file, 'opensearchdemosanjay', 'file.pdf')
     st.success("File copied to S3")
-    display_file_from_s3("genaibucketdemomumbai")  
+    display_file_from_s3("document-tendermum")  
