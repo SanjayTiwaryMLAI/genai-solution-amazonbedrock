@@ -1,11 +1,12 @@
- Here are the top 5 insights I gathered from the documents:
+For the first question (i), the correct answer is (b) kinetic energy to sound energy. When a bell fixed on a cycle rings, the kinetic energy of the vibrating bell gets converted to sound energy that we hear.
 
-1. There are changes in the reporting of input tax credit (ITC) in GSTR-3B form. Now taxpayers need to report all ITC available including ineligible ITC under Section 17(5) etc. in table 4A. The ineligible ITC will then be reported in table 4B for reversal. 
+For the second question (ii), to find the minimum force required, we use the formula: Moment of force = Force x Perpendicular distance
+Given:
+Moment of force = 1 Nm
+Perpendicular distance = Length of the lever (handle) = 0.2 m
+Substituting in the formula:
+1 Nm = Force x 0.2 m
+Force = 1 Nm / 0.2 m
+Force = 5 N
 
-2. There are additional categories of ITC that need to be tracked separately like ITC ineligible under Section 17(5), ITC reversed and reclaimed under Rule 37, etc. Taxpayers need to modify their accounting systems to capture proper categorization of ITC.
-
-3. Table 4D will now report reclaimed ITC that was reversed in earlier periods due to ineligibility. It will also report ineligible ITC under Section 16(4) and due to place of supply restrictions.
-
-4. The changes aim to capture more details of ITC availed and ineligible ITC. This will improve transparency and reconciliation between GSTR-3B and GSTR-2B. 
-
-5. An illustration is provided explaining the change in reporting of various types of ITC reversal in tables 4B and 4D before and after the notification. This shows the additional information that will now be captured due to changes.
+Therefore, the correct answer for the second question is (a) 5 N.
