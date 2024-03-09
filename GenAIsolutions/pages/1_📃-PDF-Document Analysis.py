@@ -17,7 +17,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 import base64
 import streamlit as st
 import io
-#st. set_page_config(layout="wide") 
+st. set_page_config(layout="wide") 
 # create logo using image on Streamlit app
 
 st.markdown("# 💡 Multipage PDF analysis using Bedrock")

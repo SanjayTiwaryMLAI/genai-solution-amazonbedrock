@@ -1,0 +1,118 @@
+CHANGES IN REPORTING OF 
+INPUT TAX CREDIT IN GSTR –3B
+[Notification No. 14/2022 –Central Tax dated 5thJuly 2022 read 
+with Circular No.170/02/2022 dated 6thJuly 2022]
+COMPARISON OF TABLE 4 OF FORM GSTR –3B
+BEFORE AMENDMENT AFTER AMENDMENT CHANGE
+(A) ITC Available (whether in full or part) (A) ITC Available (whether in full or part)
+(1) Import of goods (1) Import of goods No Change
+(2) Import of services (2) Import of services No Change
+(3) Inward supplies liable to reverse charge (other than 1 & 2 above) (3) Inward supplies liable to reverse charge (other than 1 & 2 above) No Change
+(4) Inward supplies from ISD (4) Inward supplies from ISD No Change
+(5) All other ITC (5) All other ITC No Change
+(B) ITC Reversed (B) ITC Reversed
+(1) As per rules 42 & 43 of CGST Rules (1) As per rules 38, 42, and 43 of CGST Rules and sub -section (5) of section 17 Operational  
+impact of the 
+highlighted text is 
+explained on the 
+next slide(2) Others (2) Others
+(C) Net ITC Available (A) –(B) (C) Net ITC Available (A) –(B)
+(D) Ineligible ITC (D) Other details
+(1) As per Section 17(5) (1) ITC reclaimed which was reversed under Table 4(B)(2) in earlier tax period
+(2) Others (2) Ineligible ITC under section 16(4) and ITC restricted due to POS provisionsNILESH
+MAHAJAN & 
+ASSOCIATESCHARTERED 
+ACCOUNTANTSOPERATIONAL IMPACT OF CHANGES IN TABLE 4 (B) & 4 (D) OF FORM GSTR –3B
+▪Currently, many taxpayers have been recording ITC on the eligible inward supply only in their ITC ledger including where ITC is required to be revered in the following scenarios:
+-Where ITC is required to be reversed on account of common inward supply used for taxable as well as exempt outward supply in terms of Rule 42 & 43; or 
+-Reversal & Reclaim of ITC in case of non -payment of consideration to vendors within 180 days from the date of invoice; or 
+-Any reversal on account of earlier wrong availment & utilization of ITC
+▪In respect of ITC on inward supplies covered under 17(5), taxpayers are not recording the same & transfer such ITC directly t o the P&L account
+▪Further, at the time of availing ITC in GSTR –3B, reconciliation is done between the Static ITC statement in Form GSTR –2B vs ITC recorded in books of accounts as per the above -
+stated manner 
+▪After such reconciliation & subject to other provisions of Section 16 & 17 of the CGST Act read with Rules made thereunder, t he credit will be reported in the respective fields of 
+table 4 of GSTR –3B
+▪However, considering the fact that declaration of ineligible ITC as per Section 17(5) in table 4(D)(1) was just informative i n nature and further direct expense out treatment given to 
+such credit in books of account, many taxpayers were not reporting the amount of ineligible ITC as per Section 17(5) in GSTR –3B
+▪After the amendment in Table 4(B) of GSTR –3B, it has been clarified that all ITC as available in GSTR 2B including ITC ineligi ble in terms of section 17(5), Rule 42,43 and 38 
+and re -availed ITC (earlier reversed due to ineligibility as per section 16(2)(c) & (d) and Rule 37) needs to be taken to Table 4(A). Thereafter, ineligible ITC as per the aforesaid 
+provisions will have to be separately taken to Table 4(B). Consequently, Net ITC as per Table 4(C) i.e., [4(A) –4(B)] shall onl y be credited to the electronic credit ledger.
+▪Thus it is mandatory to record all ineligible ITC as well, even if it is absolute in nature and not reclaimable e.g., Ineligi bleITC under Rule 38 or Section 17(5), etc.
+▪Accordingly, We believe taxpayers will have to make changes in their manner of accounting for recording ITC by categorizing t he same in accordance with various applicable 
+provisions under GST law. We have captured a list of those categories for ease of reference
+-Ineligible ITC in terms of Section 17(5)
+-Ineligible & eligible to reclaim ITC in terms of Rule 37 (non -payment of consideration within 180 days)
+-Ineligible ITC in terms of Rule 38 (reversal of credit by a banking company or a financial institution)
+-Ineligible ITC in terms of Rule 42 (common credit on inward supply of inputs or input services used for outward supply of tax able as well exempted supply)
+-Ineligible ITC in terms of Rule 43 (common credit on inward supply of capital goods used for outward supply of taxable as wel l exempted supply)
+-Ineligible ITC due to difference in place of supply
+-Ineligible ITC on time -barred invoices in terms of Section 16(4)
+-Ineligible ITC in the current tax period due to non -fulfilment of conditions of Section 16 e.g., receipt of invoice in the curre nt month but supply received in the next month
+-Ineligible ITC used exclusively or party for other than business purpose
+-All other eligible ITC▪Form GSTR –2B will also auto -categorize ITC into ineligible ITC in the following two cases :
+-Ineligible ITC in case of intra -State supply where the location of the recipient is different than the place of supply
+-Ineligible ITC on time -barred invoices in terms of Section 16(4)
+▪Considering the changes in reporting of ITC in tables 4(B) & (D) of GSTR -3B, every taxpayer needs to revisit their current met hod of the recording ITC in books of accounts and 
+make appropriate changes to ensure the availability of correct data for reconciliation with ITC in GSTR –2B and smooth reportin g in Form GSTR –3B
+▪Comparative illustration of reporting of ITC reversal before and after the amendment of GSTR –3B is provided in next slide for better understandingOPERATIONAL IMPACT OF CHANGES IN TABLE 4 (B) & 4 (D) OF FORM GSTR –3BA Registered person M/s ABC is a manufacturer (supplier) of goods. He supplies both taxable as well as exempted goods. In the month of June 2022, he has received input and 
+input services as detailed in Table 1 below. The details of auto -population of Input Tax Credit on all Inward Supplies in variou s rows of Table 4 (A) of FORM GSTR -3B are shown in 
+column (7) of Table 1 below:
+SI Details IGST [₹] CGST [₹] SGST [₹] Total [₹] Relevant table of GSTR –2B
+1 ITC on Import of goods 1,00,000 - - 1,00,000 Auto -populated in Table 4(A)(1) 
+2 ITC on Import of Services 50,000 - - 50,000 -
+3 ITC on Inward Supplies under RCM - 25,000 25,000 50,000 Auto -populated in Table 4(A)(3) 
+4 ITC on Inward Supplies from ISD 50,000 - - - Auto -populated in Table 4(A)(4)
+5 ITC on other inward supplies 2,00,000 1,50,000 1,50,000 5,00,000 Auto -populated in Table 4(A)(5) 
+6 Total 4,00,000 1,75,000 1,75,000 7,50,000 -
+Other relevant facts:
+A.Of the other inward supplies mentioned in a row (5), M/s ABC has received goods on which ITC is barred under section 17(5) of the CGST Act having integrated tax of Rs. 50,000/ -
+B.In terms of Rules 42 and 43 of the CGST Rules, M/s ABC is required to reverse ITC of Rs. 75,500/ -integrated tax, Rs. 52,000/ -central tax, and Rs. 52,000/ -state tax
+C.M/s ABC had not received the supply during June 2022 in respect of an invoice for an inwards supply auto -populated in a row (5) having an integrated tax of Rs. 10,000/ -
+D.M/s ABC has reversed ITC of Rs. 500/ -central tax and Rs. 500/ -state tax on account of Rule 37 i.e., where consideration was no t paid to the supplier within 180 days
+E.M/s ABC has ITC of Rs. 5,000/ -central tax and Rs. 5,000/ -State tax to reclaim on account Rule 37 
+F.An amount of ITC of Rs 10,000/ central Tax and Rs 10,000/ -state tax, ineligible on account of the limitation of time period as delineated in subsection (4) of section 16 of the CGST 
+Act, has not been auto -populated in Table 4(A) of FORM GSTR -3B from GSTR –2BILLUSTRATION▪Point B: Declared in 4(B)(1) to reverse the ITC in terms 
+of Rule 42 & 4BEFORE AMENDMENT IGST CGST SGST AFTER AMENDMENT IGST CGST SGST
+(A) ITC Available (whether in full or part) (A) ITC Available (whether in full or part)
+(1) Import of goods 1,00,000 - - (1) Import of goods 1,00,000
+(2) Import of services 50,000 - - (2) Import of services 50,000
+(3) Inward supplies liable to reverse charge 
+(other than 1 & 2 above)- 25,000 25,000 (3) Inward supplies liable to reverse charge (other than 
+1 & 2 above)- 25,000 25,000
+(4) Inward supplies from ISD 50,000 - - (4) Inward supplies from ISD 50,000
+(5) All other ITC 1,40,000 1,55,000 1,55,000 (5) All other ITC 2,00,000 1,55,000 1,55,000
+(B) ITC Reversed (B) ITC Reversed
+(1) As per rules 42 & 43 of CGST Rules 75,500 52,000 52,000 (1) As per rules 38, 42, and 43 of CGST Rules and sub -
+section (5) of section 171,25,500 52,000 52,000
+(2) Others - 500 500 (2) Others 10,000 500 500
+(C) Net ITC Available (A) –(B) 2,64,500 1,27,500 1,27,500 (C) Net ITC Available (A) –(B) 2,64,500 1,27,500 1,27,500
+(D) Ineligible ITC (D) Other details
+(1) As per Section 17(5) 50,000 - - (1) ITC reclaimed which was reversed under Table 
+4(B)(2) in the earlier tax period- 5,000 5,000
+(2) Others - - - (2) Ineligible ITC under section 16(4) and ITC restricted 
+due to POS provisions- 10,000 10,000
+▪Point A: Ineligible ITC as per Section 17(5) is reported in 4(D)(1) for informational 
+purposes and it has already been deducted from 4(A)(5)
+▪Point B: Declared in 4(B)(1) to reverse the ITC in terms of Rule 42 & 4
+▪Point C: ITC on the invoice for which supply is not received is not reported anywhere
+▪Point D: ITC required to be reversed for non -payment of consideration is reported in 
+table 4(B)(2)
+▪Point E: ITC reclaimed as per Rule 37 is reported in 4(A)(5)▪Point A: Ineligible ITC as per Section 17(5) is reported in 4(A)(5) & the same figure 
+is reported in 4(B)(1) for reduction from figures of ‘All other ITC’
+▪Point B: Declared in 4(B)(1) to reverse the ITC in terms of Rule 42 & 4
+▪Point C: ITC on invoices for which supply is not received is reported in 4(A)(5) and 
+the same is also reported in 4(B)(2) to reduce the same
+▪Point D: ITC required to be reversed for non -payment of consideration is reported 
+in table 4(B)(2)
+▪Point E: ITC reclaimed as per Rule 37 is reported in 4(A)(5) & 4(D)(1)
+▪Point F: ITC on time -barred invoices not included in 4(A)(5) and declared in 4(D)(1)THANK YOU
+NILESH
+MAHAJAN & 
+ASSOCIATESCHARTERED 
+ACCOUNTANTS
+Address: Office 202, Chinar Heights, lane no.5, Prabhat Road, Pune –411003
+Email ID: Office@nmandassociates.com
+Mobile: +91 95 1858 1566
+DISCLAIMER :The views expressed arestrictly oftheauthor and Nilesh Mahajan &Associates .The contents ofthese updates aresolely forinformational purposes and forthereader’s
+personal non-commercial use.Itdoes notconstitute professional advice orrecommendation ofthefirm.Neither theauthor northefirm noritsaffiliates accepts anyliabilities foranyloss
+ordamage ofanykind arising outofanyinformation inthisupdate norforanyactions taken inreliance thereon .Ifthere isanyerror/omission, then should bebrought toournotice

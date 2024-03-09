@@ -31,12 +31,12 @@ def build_chain():
       credentials_profile_name=credentials_profile_name,
       region_name = region,
       model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
-      model_id="anthropic.claude-v2"
+      model_id="anthropic.claude-3-sonnet-20240229-v1:0"
     )
   else:
     llm = Bedrock(
       region_name = region,
-      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
+      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0},
       model_id="anthropic.claude-v2"
     )
       
@@ -63,13 +63,11 @@ def build_chain():
 
   prompt_template = """Human: as a expert research analyst for government usecases and please provide information based on the context
   If the AI does not know the answer to a question, it truthfully says it 
-  does not know.
-  Human: Here are a few documents in <documents> tags:
+  does not know.Here are a few documents in <documents> tags:
   <documents>
   {context}
   </documents>
-  Based on the above documents, provide a detailed answer for, {question} 
-  Answer "don't know" if not present in the document. 
+  Based on the above documents, provide a detailed answer for, {question}. 
 
   Assistant:
   """

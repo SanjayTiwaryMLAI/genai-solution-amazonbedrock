@@ -1,34 +1,92 @@
 
 import boto3
 from streamlit_cognito_auth import CognitoAuthenticator
+import os, base64
+import streamlit as st
 
-# Initialize Cognito authentication
-cog_auth = CognitoAuthenticator(user_pool_id="my_user_pool_id", 
-    user_pool_client_id="6avbau3bonk5478jml3hft5t9a",
-    region="us-east-1", )
+pool_id = os.environ["POOL_ID"]
+app_client_id = os.environ["APP_CLIENT_ID"]
+app_client_secret = os.environ["APP_CLIENT_SECRET"]
 
-auth = cog_auth.authenticate()
-# Create the Auth object
-# auth = Auth(
-#     authorizers=[cog_auth], 
-#     on_failure_redirect_to_authorization_url=True,
-#     authorization_url=cog_auth.authorization_url
-# )
+authenticator = CognitoAuthenticator(
+    pool_id=pool_id,
+    app_client_id=app_client_id,
+    app_client_secret=app_client_secret,
+    use_cookies=False
+)
 
-export POOL_ID="your_pool_id"
-export APP_CLIENT_ID="6avbau3bonk5478jml3hft5t9a"
-export APP_CLIENT_SECRET="your_app_client_secret"
+import hmac
+import hashlib
 
-cd examples
-streamlit run example.py
+def calculate_secret_hash(client_secret, username, client_id):
+    message = username + client_id
+    dig = hmac.new(str(client_secret).encode('utf-8'), 
+                   msg = str(message).encode('utf-8'), 
+                   digestmod = hashlib.sha256).digest()
+    return base64.b64encode(dig).decode()
 
+
+# Helper functions for Cognito integration
+def get_cognito_client():
+    client = boto3.client(
+        "cognito-idp", 
+        region_name="us-east-1"
+    )
+    return client
+
+def sign_up(client, username, password):
+    try:
+        secret_hash = calculate_secret_hash(app_client_secret, username,app_client_id)
+        print(secret_hash)
+        resp = client.sign_up(
+            ClientId=app_client_id,
+            Username=username,
+            Password=password,
+            SecretHash =secret_hash
+        )
+        print(resp)
+    except Exception as e:
+        print(e)
+        
+def createuser(client, username, password):
+    try:
+        secret_hash = calculate_secret_hash(app_client_secret, username,app_client_id)
+        print(secret_hash)
+        resp = client.sign_up(
+            ClientId=app_client_id,
+            Username=username,
+            Password=password,
+            SecretHash =secret_hash
+        )
+        print(resp)
+    except Exception as e:
+        print(e)
+
+def confirm_sign_up(client, username, code):
+    try:
+        resp = client.confirm_sign_up(
+            ClientId=app_client_id,
+            Username=username, 
+            ConfirmationCode=code,
+            SecretHash =app_client_secret
+        )
+        print(resp)
+    except Exception as e:
+        print(e)  
+
+
+
+# is_logged_in = authenticator.login()
+# if not is_logged_in:
+#     st.stop()
+    
 # Secure the entire app with Auth 
 def main():
 
-    auth.login_button()
+    #authenticator.login()
 
     # User authenticated, run app
-    authenticated_user = auth.get_user()
+    #authenticated_user = authenticator.get_username()
     
     # Rest of Streamlit app
     import streamlit as st
@@ -44,20 +102,14 @@ def main():
         st.success("User created! Please check your email for a confirmation code.")
   
 
-    # When the user signs up, call the `sign_up` function to create the user in Cognito. This will trigger a confirmation email.
+        # ```python
+        st.title("Confirm Sign Up") 
+        code = st.text_input("Confirmation Code")
 
-    # 2. Create a confirmation page:
-
-    # ```python
-    st.title("Confirm Sign Up") 
-
-    username = st.text_input("Username")
-    code = st.text_input("Confirmation Code")
-
-    if st.button("Confirm"):
-        client = get_cognito_client()
-        confirm_sign_up(client, username, code)
-        st.success("Confirmed!")
+        if st.button("Confirm"):
+            client = get_cognito_client()
+            confirm_sign_up(client, username, code)
+            st.success("Confirmed!")
     # ```
 
     # The user enters their confirmation code from the email to confirm their account.
@@ -74,34 +126,4 @@ def main():
         st.write("Confirm")
 if __name__ == "__main__":
     main()
-
-# Helper functions for Cognito integration
-def get_cognito_client():
-    client = boto3.client(
-        "cognito-idp", 
-        region_name="us-east-1"
-    )
-    return client
-
-def sign_up(client, username, password):
-    try:
-        resp = client.sign_up(
-            ClientId='my_app_client_id',
-            Username=username,
-            Password=password
-        )
-        print(resp)
-    except Exception as e:
-        print(e)
-        
-def confirm_sign_up(client, username, code):
-    try:
-        resp = client.confirm_sign_up(
-            ClientId='my_app_client_id',
-            Username=username, 
-            ConfirmationCode=code
-        )
-        print(resp)
-    except Exception as e:
-        print(e)  
 
