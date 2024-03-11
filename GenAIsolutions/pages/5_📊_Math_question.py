@@ -1,5 +1,5 @@
 # importing required modules 
-from claude3basefunction import call_claude_sonet, convert_image_to_base64
+from claude3basefunction import Analyticsfunction
 from basefunction import count_tokens
 
 import base64
@@ -25,10 +25,14 @@ This opens up a ton of possibilities for creating more interactive and intellige
 """
 )
 
+obj = Analyticsfunction()
+
+convert_image =  obj.convert_image_to_base64
+claude3 = obj.call_claude_sonet
 
 def invoke_model( question, image):
-    base64_image = convert_image_to_base64(image)
-    response = call_claude_sonet(base64_image,question)
+    base64_image = convert_image(image)
+    response = claude3(base64_image,question)
     num_tokens = count_tokens(response)
     
     st.info(f"Output contains {num_tokens} tokens.")
