@@ -15,8 +15,8 @@ def convert_image_to_base64(image_path):
     return base64_string
 
 # Example usage
-image_path = "/Users/tiwarysa/Documents/artofpossible/GenAIsolutions/file01.jpg"
-base64_image = convert_image_to_base64(image_path)
+# image_path = "/Users/tiwarysa/Documents/artofpossible/GenAIsolutions/file01.jpg"
+# base64_image = convert_image_to_base64(image_path)
 
 
 
@@ -26,6 +26,9 @@ def call_claude_sonet(base64_string, question):
     prompt_config = {
         "anthropic_version": "bedrock-2023-05-31",
         "max_tokens": 4096,
+        "temperature": 0.0,
+        "top_k": 250,
+        "top_p": 1,
         "messages": [
             {
                 "role": "user",
@@ -49,6 +52,7 @@ def call_claude_sonet(base64_string, question):
     modelId = "anthropic.claude-3-sonnet-20240229-v1:0"
     accept = "application/json"
     contentType = "application/json"
+
 
     response = bedrock_runtime.invoke_model(
         body=body, modelId=modelId, accept=accept, contentType=contentType

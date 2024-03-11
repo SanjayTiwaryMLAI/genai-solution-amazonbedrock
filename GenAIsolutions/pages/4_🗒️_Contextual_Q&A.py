@@ -2,9 +2,9 @@
 from basefunction import claudemodel, pdfuplaodllmmodel
 import streamlit as st
 import io
-#st. set_page_config(layout="wide") 
-import streamlit as st
 
+import streamlit as st
+st. set_page_config(layout="wide") 
 #add sidebar and connect a page
 st.sidebar.title("Contextual Chatbot")
 st.sidebar.caption("A streamlit chatbot powered by LLM", )

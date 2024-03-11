@@ -9,7 +9,7 @@ from langchain.prompts import PromptTemplate
 from langchain.llms.bedrock import Bedrock
 import boto3
 import streamlit as st
-#st. set_page_config(layout="centered") 
+st. set_page_config(layout="centered") 
 
 st.title("🔎  RAG implemented using Opensearch and Bedrock" )
 st.sidebar.title("RAG developed using Opensearch and Bedrock")

@@ -4,9 +4,8 @@ from basefunction import count_tokens
 
 import base64
 import streamlit as st
-import io
-
 st. set_page_config(layout="wide") 
+import io
 # create logo using image on Streamlit app
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.markdown("# 💡 Math question and answer using Claude3")
