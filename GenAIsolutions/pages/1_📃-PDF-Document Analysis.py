@@ -9,15 +9,12 @@ from basefunction import detect_entity
 from basefunction import send_response_to_s3
 from basefunction import text_to_speech
 from printcloud import print_wordcloud
-
+import base64
 import numpy as np
 import streamlit as st
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
-import base64
-import streamlit as st
-import io
 st. set_page_config(layout="wide") 
+st.set_option('deprecation.showPyplotGlobalUse', False)
+import io
 # create logo using image on Streamlit app
 
 st.markdown("# 💡 Multipage PDF analysis using Bedrock")

@@ -12,11 +12,10 @@ import numpy as np
 
 import base64
 import streamlit as st
-import io
 st. set_page_config(layout="wide") 
 # create logo using image on Streamlit app
 st.set_option('deprecation.showPyplotGlobalUse', False)
-
+import io
 st.markdown("# 💡 Image analysis using Bedrock")
 st.sidebar.header("🤖 Document Analysis")
 st.sidebar.text("1. Amazon Bedrock - LLM" )

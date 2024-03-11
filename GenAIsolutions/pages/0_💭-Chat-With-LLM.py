@@ -1,10 +1,8 @@
 # importing required modules 
 from basefunction import claudemodel
 import streamlit as st
+st. set_page_config(layout="wide") 
 import io
-#st. set_page_config(layout="wide") 
-import streamlit as st
-
 #add sidebar and connect a page
 st.sidebar.title("Chatbot")
 st.sidebar.caption("A streamlit chatbot powered by LLM", )

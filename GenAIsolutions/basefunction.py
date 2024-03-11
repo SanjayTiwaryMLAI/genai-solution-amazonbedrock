@@ -22,6 +22,8 @@ bedrock_runtime = boto3.client('bedrock-runtime',region_name='us-east-1')
 ##boto3_bedrock = boto3.client('bedrock', region_name='us-east-1', aws_access_key_id= accesskey,aws_secret_access_key=secretkey)
 #bedrock_runtime = boto3.client('bedrock-runtime',region_name='us-east-1',aws_access_key_id= accesskey, aws_secret_access_key=secretkey)
 
+modelselected = "anthropic.claude-v2"
+
 def count_tokens(string: str) -> int:
     encoding_name = "p50k_base"
     encoding = tiktoken.get_encoding(encoding_name)
@@ -47,7 +49,7 @@ def create_text(doc1,filename):
 def claudemodel(prompt,maxt, t):
     prompt_data = "Human:"+  prompt + "Assistant:"
     body = json.dumps({"prompt": prompt_data, "max_tokens_to_sample": maxt, "temperature":t})
-    modelId = "anthropic.claude-3-sonnet-20240229-v1:0"  # change this to use a different version from the model provider
+    modelId = modelselected  # change this to use a different version from the model provider
     accept = "application/json"
     contentType = "application/json"
     response = bedrock_runtime.invoke_model(
@@ -63,7 +65,7 @@ def claudemodelstream(prompt_data):
     body = json.dumps({"prompt": prompt_data, "max_tokens_to_sample": 5000, "temperature":0})
 
     #"body": "{"prompt":"this is where you place your input text","maxTokens":200,"temperature":0,"topP":250,"stop_sequences":[],"countPenalty":{"scale":0},"presencePenalty":{"scale":0},"frequencyPenalty":{"scale":0}}"  
-    modelId = "anthropic.claude-3-sonnet-20240229-v1:0"  # change this to use a different version from the model provider
+    modelId = "modelselected"  # change this to use a different version from the model provider
     accept = "application/json"
     contentType = "application/json"
     response = bedrock_runtime.invoke_model_with_response_stream(body=body, modelId=modelId, accept=accept, contentType=contentType)
@@ -112,7 +114,7 @@ def pdfuplaodllm(question,doc1,t, maxt):
 
     body = json.dumps({"prompt": prompt_data, "max_tokens_to_sample": maxt, "temperature":t})
     
-    modelId = "anthropic.claude-3-sonnet-20240229-v1:0"  # change this to use a different version from the model provider
+    modelId = "modelselected"  # change this to use a different version from the model provider
     accept = "application/json"
     contentType = "application/json"
     response = bedrock_runtime.invoke_model_with_response_stream(body=body, modelId=modelId, accept=accept, contentType=contentType)
@@ -155,7 +157,7 @@ def pdfuplaodllmmodel(question,doc1, maxt, t):
                 "stop_sequences": ["\n\nHuman:"],
             }
     
-        modelId = "anthropic.claude-3-sonnet-20240229-v1:0"  # change this to use a different version from the model provider
+        modelId = "modelselected"  # change this to use a different version from the model provider
         accept = "application/json"
         contentType = "application/json"
 
