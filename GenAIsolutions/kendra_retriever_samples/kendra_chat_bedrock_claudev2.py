@@ -31,13 +31,13 @@ def build_chain():
       credentials_profile_name=credentials_profile_name,
       region_name = region,
       model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
-      model_id="anthropic.claude-3-sonnet-20240229-v1:0"
+      model_id="anthropic.claude-v2:1"
     )
   else:
     llm = Bedrock(
       region_name = region,
       model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0},
-      model_id="anthropic.claude-v2"
+      model_id="anthropic.claude-v2:1"
     )
       
   retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=6,region_name="ap-south-1")

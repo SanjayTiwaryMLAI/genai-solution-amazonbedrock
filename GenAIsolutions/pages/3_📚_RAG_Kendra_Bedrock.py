@@ -50,7 +50,6 @@ def display_file_from_s3(bucket):
         st.write(file_object["Contents"][i]["Key"])   
 
 
-
 #create a button to start sync of Amazon Kendra
 index_id = "2c5ae64e-a382-4ae9-bb90-deb069c662fa" 
 id = "e385cde4-178f-4e3a-bf7d-61b58b41fd3c"
@@ -274,3 +273,4 @@ if file is not None:
     #s3.upload_file(file, 'opensearchdemosanjay', 'file.pdf')
     st.success("File copied to S3")
     display_file_from_s3("document-tendermum")  
+    
