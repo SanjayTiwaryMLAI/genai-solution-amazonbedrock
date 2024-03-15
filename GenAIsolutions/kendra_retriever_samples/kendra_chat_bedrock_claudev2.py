@@ -22,7 +22,7 @@ MAX_HISTORY_LENGTH = 5
 
 def build_chain():
   region = "us-east-1"
-  kendra_index_id = "2c5ae64e-a382-4ae9-bb90-deb069c662fa"
+  kendra_index_id = "fc288b2d-5a97-4df6-983d-09b138cb90d3"
 
   if "AWS_PROFILE" in os.environ:
     credentials_profile_name = os.environ['AWS_PROFILE']
@@ -40,37 +40,37 @@ def build_chain():
       model_id="anthropic.claude-v2:1"
     )
       
-  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=6,region_name="ap-south-1")
+  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=6,region_name="us-east-1")
 
 
-  # prompt_template = """Human: This is a friendly conversation between a human and an AI. 
-  # The AI is talkative and provides specific details from its context but limits it to 240 tokens.
-  # If the AI does not know the answer to a question, it truthfully says it 
-  # does not know.
-
-  # Assistant: OK, got it, I'll be a talkative truthful AI assistant.
-
-  # Human: Here are a few documents in <documents> tags:
-  # <documents>
-  # {context}
-  # </documents>
-  # Based on the above documents, provide a detailed answer for, {question} 
-  # Answer "don't know" if not present in the document. 
-
-  # Assistant:
-  # """
-
-
-  prompt_template = """Human: as a expert research analyst for government usecases and please provide information based on the context
+  prompt_template = """Human: This is a friendly conversation between a human and an AI. 
+  The AI is talkative and provides specific details from its context but limits it to 240 tokens.
   If the AI does not know the answer to a question, it truthfully says it 
-  does not know.Here are a few documents in <documents> tags:
+  does not know.
+
+  Assistant: OK, got it, I'll be a talkative truthful AI assistant.
+
+  Human: Here are a few documents in <documents> tags:
   <documents>
   {context}
   </documents>
-  Based on the above documents, provide a detailed answer for, {question}. 
+  Based on the above documents, provide a detailed answer for, {question} 
+  Answer "don't know" if not present in the document. 
 
   Assistant:
   """
+
+
+  # prompt_template = """Human: as a expert research analyst and please provide information based on the context
+  # If the AI does not know the answer to a question, it truthfully says it .
+  # does not know.Here are a few documents in <documents> tags:
+  # <documents>
+  # {context}
+  # </documents>
+  # Based on the above documents, provide a detailed answer for, {question}. 
+
+  # Assistant:
+  # """
   PROMPT = PromptTemplate(
       template=prompt_template, input_variables=["context", "question"]
   )

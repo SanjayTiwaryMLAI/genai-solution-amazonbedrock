@@ -1,9 +1,14 @@
-In the given chemical reaction between hydrogen sulfide (H2S) and iodine (I2) to produce hydrogen iodide (HI) and sulfur (S), the reducing and oxidizing agents can be identified based on the changes in oxidation states of the elements involved.
+For the first part (i), the correct answer is (b) kinetic energy to sound energy.
 
-The correct answer is option c) Sulfur and iodine respectively.
+When a bell fixed on a cycle rings, the kinetic energy of the vibrating bell gets converted into sound energy that we hear as the ringing sound.
 
-In this redox reaction, sulfur is being oxidized from the -2 oxidation state in H2S to the 0 oxidation state in elemental sulfur (S). Therefore, sulfur acts as the reducing agent, donating electrons.
+For the second part (ii), to find the minimum force required when a moment of 1 Nm is produced by turning a lever of length 0.2 m, we can use the formula:
 
-On the other hand, iodine is being reduced from the 0 oxidation state in elemental iodine (I2) to the -1 oxidation state in hydrogen iodide (HI). Therefore, iodine acts as the oxidizing agent, accepting electrons.
+Moment of force = Force × Perpendicular distance
 
-So, the reducing agent is sulfur, and the oxidizing agent is iodine in this redox reaction between hydrogen sulfide and iodine.
+Rearranging, we get:
+Force = Moment of force / Perpendicular distance
+        = 1 Nm / 0.2 m
+        = 5 N
+
+Therefore, the correct answer for part (ii) is (a) 5 N.

@@ -17,10 +17,10 @@ st.sidebar.text("How does a user can search his/her medical records and explain 
 
 import boto3
 import time
-s3 = boto3.client('s3', region_name="ap-south-1")
+s3 = boto3.client('s3', region_name="us-east-1")
 
 def sync_kendra_index(Id, IndexId):
-    session = boto3.session.Session(region_name="ap-south-1")
+    session = boto3.session.Session(region_name="us-east-1")
     kendra_client = session.client('kendra')
     
     try:
@@ -44,15 +44,15 @@ def sync_kendra_index(Id, IndexId):
     print(f"Sync triggered for {len(Id)} data sources")
 
 def display_file_from_s3(bucket):
-    s3 = boto3.client('s3', region_name="ap-south-1")
+    s3 = boto3.client('s3', region_name="us-east-1")
     file_object = s3.list_objects(Bucket=bucket)
     for i in range(0,len(file_object["Contents"])):
         st.write(file_object["Contents"][i]["Key"])   
 
 
 #create a button to start sync of Amazon Kendra
-index_id = "2c5ae64e-a382-4ae9-bb90-deb069c662fa" 
-id = "e385cde4-178f-4e3a-bf7d-61b58b41fd3c"
+index_id = "fc288b2d-5a97-4df6-983d-09b138cb90d3" 
+id = "e17c17a2-f516-4ae0-a6fe-43d598264d78"
 
 st.sidebar.markdown("## Sync Amazon Kendra")
 if st.sidebar.button("Sync Amazon Kendra"):
@@ -265,7 +265,7 @@ if file is not None:
     local_file_path = 'pdf_file.pdf'  # Path to your local file
     bucket_name = 'document-tendermum'  # Name of your S3 bucket
     s3_file_name = 'pdf_file.pdf' 
-    region = "ap-south-1" # Name you want to give the file in the S3 bucket
+    region = "us-east-1" # Name you want to give the file in the S3 bucket
 
     path= send_response_to_s3(local_file_path, bucket_name, s3_file_name,region)
 
