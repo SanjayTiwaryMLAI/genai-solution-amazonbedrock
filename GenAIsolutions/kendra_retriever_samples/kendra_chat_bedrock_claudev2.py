@@ -20,6 +20,7 @@ class bcolors:
 
 MAX_HISTORY_LENGTH = 5
 
+
 def build_chain():
   region = "us-east-1"
   kendra_index_id = "fc288b2d-5a97-4df6-983d-09b138cb90d3"
@@ -40,7 +41,7 @@ def build_chain():
       model_id="anthropic.claude-v2:1"
     )
       
-  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=4,region_name="us-east-1")
+  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=4,region_name=region)
 
 
   prompt_template = """Human: This is a friendly conversation between a human and an AI. 
