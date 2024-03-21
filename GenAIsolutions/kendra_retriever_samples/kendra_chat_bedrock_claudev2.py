@@ -40,7 +40,7 @@ def build_chain():
       model_id="anthropic.claude-v2:1"
     )
       
-  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=6,region_name="us-east-1")
+  retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=4,region_name="us-east-1")
 
 
   prompt_template = """Human: This is a friendly conversation between a human and an AI. 

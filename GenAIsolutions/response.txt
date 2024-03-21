@@ -1,14 +1,21 @@
-For the first part (i), the correct answer is (b) kinetic energy to sound energy.
+The image illustrates the architecture and workflow of an AWS-based system for generating responses to user questions. Here are the steps involved:
 
-When a bell fixed on a cycle rings, the kinetic energy of the vibrating bell gets converted into sound energy that we hear as the ringing sound.
+1. A user submits a question.
+2. The question is received by an application or service (e.g., Streamlit Application).
+3. The question is forwarded to Amazon API Gateway, which acts as a proxy for GenAI (REST APIs).
+4. Amazon API Gateway triggers an AWS Lambda function (RAG - Retrieval Augmented Generation).
+5. The Lambda function interacts with BEDROCK Embedding, which is responsible for embedding documents.
+6. The Lambda function also interacts with a SageMaker endpoint.
+7. The AWS Lambda function processes the user question and generates a response.
+8. The response is sent back through Amazon API Gateway to the application or service.
+9. The application or service (e.g., Streamlit Application) displays the generated response to the user.
 
-For the second part (ii), to find the minimum force required when a moment of 1 Nm is produced by turning a lever of length 0.2 m, we can use the formula:
+The system also involves the following AWS services:
 
-Moment of force = Force × Perpendicular distance
+- Amazon Cognito: Handles user authentication and authorization.
+- Virtual Private Cloud (VPC): Provides a secure and isolated virtual network environment.
+- Amazon Relational Database Service (Amazon RDS): Stores and manages the data required for the system.
+- Amazon SageMaker Processing Job: Responsible for converting documents to embeddings.
+- Amazon Simple Storage Service (Amazon S3): Stores the documents and other data required for the system.
 
-Rearranging, we get:
-Force = Moment of force / Perpendicular distance
-        = 1 Nm / 0.2 m
-        = 5 N
-
-Therefore, the correct answer for part (ii) is (a) 5 N.
+The workflow involves both real-time processing of user queries and offline data ingestion processes.
