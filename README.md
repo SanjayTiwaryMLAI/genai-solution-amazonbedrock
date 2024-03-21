@@ -1,37 +1,6 @@
 # llmbedrock
 
-
-1. 
-```bash
-cd GenAIsolutions
-```
-
-2. 
-```bash
-python3 -m venv .llmv
-source .llmv/bin/activate
-.llmv/bin/python
-```
-
-code for invoking llm for large documents
-3. open terminal and intsall requirement.txt
-```bash
-pip install -r requirements.txt
-```
-
-4. run python code for running streamlit application
-```bash
-streamlit run WelcomePage.py --server.port 8080
-```
-or 
-
-5. run python code 
-```bash
-python3 main.py
-
-
-
-# Usecase details
+# Usecase- details
 
 Here's a README file for the GitHub repository of the project you described:
 
@@ -72,19 +41,62 @@ This project provides a suite of solutions for analyzing documents (PDFs and ima
 
 ## Getting Started
 
-To get started with this project, follow these steps:
 
-1. Clone the repository to your local machine.
-2. Install the required dependencies listed in the `requirements.txt` file.
-3. Configure the necessary AWS services (e.g., Textract, Comprehend, Polly, Kendra, OpenSearch) and provide the required credentials.
-4. Run the appropriate script or application for the desired solution.
-5. Upload your documents (PDFs or images) or provide the necessary input.
-6. Ask questions, and the system will generate intelligent responses based on the selected solution.
+# Steps to use the application
+
+
+Here's the rewritten version for a GitHub README file:
+
+# GenAISolutions
+
+This repository contains code for invoking a large language model (LLM) to process and analyze large documents.
+
+## Getting Started
+
+Follow these steps to set up the project locally:
+
+### 1. Navigate to the project folder
+
+```bash
+cd GenAIsolutions
+```
+
+### 2. Create and activate a virtual environment
+
+```bash
+python3 -m venv .llmv
+source .llmv/bin/activate
+.llmv/bin/python
+```
+
+### 3. Install dependencies
+
+Open a terminal and install the required packages from the `requirements.txt` file:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run the Streamlit application
+
+To run the Streamlit application, execute the following command:
+
+```bash
+streamlit run WelcomePage.py --server.port 8080
+```
+
+### 5. Run the main script (alternative)
+
+Alternatively, you can run the main script directly:
+
+```bash
+python3 main.py
+```
+
+## Usage
+
+This project allows you to invoke a large language model to process and analyze large documents. The main functionality is provided by the `main.py` script, which you can run directly or through the Streamlit application.
 
 ## Contributing
 
 Contributions to this project are welcome. If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
