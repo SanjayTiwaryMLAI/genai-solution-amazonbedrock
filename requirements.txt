@@ -1,6 +1,6 @@
 PyPDF2
 boto3
-streamlit
+streamlit==1.30.0
 IPython
 scikit-learn
 tiktoken
