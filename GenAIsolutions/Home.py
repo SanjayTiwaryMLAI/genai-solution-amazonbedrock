@@ -5,7 +5,7 @@ st.set_page_config(
     page_title="Hello",
     page_icon="👋",layout="wide"
 )
-st.write("# Welcome to Streamlit! 👋")
+st.write("# 🚀 Welcome to Generative AI Demo using Amazon Bedrock! 👋")
 
 st.markdown(
     """
@@ -47,10 +47,5 @@ else:
 #         st.write("You do not have access. Please contact the administrator.")
 #     else:
 #         st.write("Please login!")
-    
-    import streamlit as st
-
-
-st.write("# 🚀 Welcome to Generative AI Demo using Amazon Bedrock! 👋")
 
 st.sidebar.success("Select a demo above.")
