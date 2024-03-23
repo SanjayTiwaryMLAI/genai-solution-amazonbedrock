@@ -5,6 +5,7 @@ st.set_page_config(
     page_title="Hello",
     page_icon="👋",layout="wide"
 )
+
 st.write("# 🚀 Welcome to Generative AI Demo using Amazon Bedrock! 👋")
 
 st.markdown(
@@ -28,13 +29,19 @@ st.markdown(
 # Check authentication when user lands on the home page.
 authenticate.set_st_state_vars()
 
+
 # Add login/logout buttons
 if st.session_state["authenticated"]:
     authenticate.button_logout()
 else:
     authenticate.button_login()
+    
+    st.write(
+        """This demo illustrates a GenAI capability using Amazon Bedrock Enjoy!""")
 
-# if st.session_state["authenticated"] and "Underwriters" in st.session_state["user_cognito_groups"]:
+
+
+# if st.session_state["authenticated"] and "adminaccess" in st.session_state["user_cognito_groups"]:
 #     st.write(
 #         """This demo illustrates a combination of plotting and animation with
 #     Streamlit. We're generating a bunch of random numbers in a loop for around
