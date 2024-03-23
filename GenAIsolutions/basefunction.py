@@ -108,8 +108,11 @@ def pdfuplaodllm(question,doc1,t, maxt):
     with open("new.txt", 'w') as f:
         f.writelines(text)
     
-
-    prompt_data = "Human:"+ question + "on the context" + text + "Assistant:"
+    prompt_data = f"Human: {question}" + """The following is a friendly conversation between a human and an AI. 
+            The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it 
+            does not know. """ + f"{text}" + """\n\nAssistant:"""
+        
+    # prompt_data = "Human:"+ question + "on the context" + text + "Assistant:"
 
 
     body = json.dumps({"prompt": prompt_data, "max_tokens_to_sample": maxt, "temperature":t})
@@ -144,10 +147,10 @@ def pdfuplaodllmmodel(question,doc1, maxt, t):
         with open("new.txt", 'w') as f:
             f.writelines(text)
         
-
-        prompt_data = "Human:"+ """The following is a friendly conversation between a human and an AI. 
-            The AI is talkative and provides lots of specific details from its context.If the AI does not know the answer to a question, it truthfully says it 
-            does not know. """ + text + """  Instruction: Based on the above documents, provide a detailed answer for """ + question + "\n\nAssistant:"
+        prompt_data = f"Human: {question}" + """The following is a friendly conversation between a human and an AI. 
+            The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it 
+            does not know. """ + f"{text}" + """\n\nAssistant:"""
+        
 
         #prompt_data = "Human:"+ question + "on the context" + text + "Assistant:"
         body = {
@@ -183,10 +186,10 @@ def pdfuplaodllmmodelselection(modelid, question,doc1, maxt, t):
             f.writelines(text)
         
 
-        prompt_data = "Human:"+ """The following is a friendly conversation between a human and an AI. 
-            The AI is talkative and provides lots of specific details from its context.If the AI does not know the answer to a question, it truthfully says it 
-            does not know. """ + text + """  Instruction: Based on the above documents, provide a detailed answer for """ + question + "\n\nAssistant:"
-
+        prompt_data = f"Human: {question}" + """The following is a friendly conversation between a human and an AI. 
+            The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it 
+            does not know. """ + f"{text}" + """\n\nAssistant:"""
+        
         #prompt_data = "Human:"+ question + "on the context" + text + "Assistant:"
         body = {
                 "prompt": prompt_data,
@@ -211,10 +214,11 @@ def pdfuplaodllmmodelselection(modelid, question,doc1, maxt, t):
 
 def llmforimages(modelid, question,text, maxt, t):
     try:
-        prompt_data = "Human:"+ """The following is a friendly conversation between a human and an AI. 
-            The AI is talkative and provides lots of specific details from its context.If the AI does not know the answer to a question, it truthfully says it 
-            does not know. """ + text + """  Instruction: Based on the above documents, provide a detailed answer for """ + question + "\n\nAssistant:"
-
+    
+        prompt_data = f"Human: {question}" + """The following is a friendly conversation between a human and an AI. 
+            The AI is talkative and provides lots of specific details from its context. If the AI does not know the answer to a question, it truthfully says it 
+            does not know. """ + f"{text}" + """\n\nAssistant:"""
+        
         #prompt_data = "Human:"+ question + "on the context" + text + "Assistant:"
         body = {
                 "prompt": prompt_data,

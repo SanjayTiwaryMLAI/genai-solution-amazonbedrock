@@ -34,6 +34,7 @@ if (
     from printcloud import print_wordcloud
     import base64
     import numpy as np
+    import io
 
 
     # create logo using image on Streamlit app

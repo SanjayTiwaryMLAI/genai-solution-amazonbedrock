@@ -1,21 +1,3 @@
-The image illustrates the architecture and workflow of an AWS-based system for generating responses to user questions. Here are the steps involved:
+ Here is a summary of the key points from the document in 200 words:
 
-1. A user submits a question.
-2. The question is received by an application or service (e.g., Streamlit Application).
-3. The question is forwarded to Amazon API Gateway, which acts as a proxy for GenAI (REST APIs).
-4. Amazon API Gateway triggers an AWS Lambda function (RAG - Retrieval Augmented Generation).
-5. The Lambda function interacts with BEDROCK Embedding, which is responsible for embedding documents.
-6. The Lambda function also interacts with a SageMaker endpoint.
-7. The AWS Lambda function processes the user question and generates a response.
-8. The response is sent back through Amazon API Gateway to the application or service.
-9. The application or service (e.g., Streamlit Application) displays the generated response to the user.
-
-The system also involves the following AWS services:
-
-- Amazon Cognito: Handles user authentication and authorization.
-- Virtual Private Cloud (VPC): Provides a secure and isolated virtual network environment.
-- Amazon Relational Database Service (Amazon RDS): Stores and manages the data required for the system.
-- Amazon SageMaker Processing Job: Responsible for converting documents to embeddings.
-- Amazon Simple Storage Service (Amazon S3): Stores the documents and other data required for the system.
-
-The workflow involves both real-time processing of user queries and offline data ingestion processes.
+South Eastern Coalfields Limited (SECL) issued a tender notice for two works - (A) Hiring of tippers for coal transportation from Pandavpara Mine to Katora Railway Siding (quantity 7,50,000 Te) and (B) Hiring of payloader for mechanical transfer of coal at Pandavpara Mine pit head (quantity 37,500 Te). The estimated value is Rs 11.78 crore for a period of 1096 days. Details of lead distance, minimum TPD, tender schedule etc are provided. Eligibility criteria includes work experience, availability of working capital, fleet requirement, PAN, GST registration etc. Bidders must accept various conditions like Letter of Bid, Integrity Pact (for tenders above Rs 5 crore), installation of GPS devices in tippers. Evaluation process, stages and method for L1 determination are outlined. EMD exemption for eligible MSE bidders is allowed. Procedure for bid submission, modification, clarifications etc are detailed. Terms w.r.t bid validity, tender status tracking, refund of EMD are mentioned. SECL reserves right to split work, cancel/postpone tender without assigning reasons. Addendums to be published online. Make In India purchase preference applicable.
