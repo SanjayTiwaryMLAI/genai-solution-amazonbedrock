@@ -16,6 +16,8 @@ st.sidebar.caption("LLM- Anthropic Claude2")
 st.sidebar.text("How is Amazon performed during Covid19")
 st.sidebar.text("What are various challenges Amazon faced")
 
+from botocore.exceptions import ClientError
+import logger
 
 boto3_bedrock = boto3.client('bedrock', region_name='us-east-1')
 bedrock_runtime = boto3.client('bedrock-runtime',region_name='us-east-1')
@@ -117,7 +119,7 @@ def pdfuplaodllm(question,doc1,t, maxt):
 
     body = json.dumps({"prompt": prompt_data, "max_tokens_to_sample": maxt, "temperature":t})
     
-    modelId = "modelselected"  # change this to use a different version from the model provider
+    modelId = modelselected  # change this to use a different version from the model provider
     accept = "application/json"
     contentType = "application/json"
     response = bedrock_runtime.invoke_model_with_response_stream(body=body, modelId=modelId, accept=accept, contentType=contentType)
@@ -160,7 +162,7 @@ def pdfuplaodllmmodel(question,doc1, maxt, t):
                 "stop_sequences": ["\n\nHuman:"],
             }
     
-        modelId = "modelselected"  # change this to use a different version from the model provider
+        modelId = modelselected  # change this to use a different version from the model provider
         accept = "application/json"
         contentType = "application/json"
 
@@ -288,7 +290,7 @@ def send_response_to_s3(local_file_path, bucket_name, s3_file_name, region):
 
 #create function to convert text to speech using Polly
 def text_to_speech(text):
-    polly = boto3.client('polly')
+    polly = boto3.client('polly',region_name='us-east-1')
     response = polly.synthesize_speech(Text=text, OutputFormat='mp3', VoiceId='Joanna')
     file = open('speech.mp3', 'wb')
     file.write(response['AudioStream'].read())
@@ -297,7 +299,7 @@ def text_to_speech(text):
 
 #create function to convert image to text using textract
 def image_to_text(image):
-    textract = boto3.client('textract')
+    textract = boto3.client('textract', region_name='us-east-1')
     with open(image, 'rb') as image:
         response = textract.detect_document_text(Document={'Bytes': image.read()})
     text = ''
@@ -308,7 +310,7 @@ def image_to_text(image):
 
 #create function to convert pdf to text using textract
 def pdf_to_text(pdf):
-    textract = boto3.client('textract')
+    textract = boto3.client('textract',region_name='us-east-1')
     with open(pdf, 'rb') as pdf:
         response = textract
         response = textract.start_document_text_detection(Document={'Bytes': pdf.read()})
