@@ -35,8 +35,6 @@ if (
     
     st.sidebar.caption("streamlit chatbot powered by LLM")
     
-    # create a dropdown in sidebar for selection of model from streamlit sidebar
-    
     
     st.write(
         """The ability for Claude 3 to process images is a game-changer. Think about automating tasks that involve user-uploaded content or quickly analyzing charts and graphs without manual input. Claude 3 can handle:
@@ -81,9 +79,7 @@ if (
         output = open("file01.jpg", "wb")
         output.write(image.read())
         output.close()
-        #response = image_to_text("file01.jpg")
-        #wait for response is recieved\
-        #st.write(response)
+        
         display_image("file01.jpg")
     
     enterinput = st.text_input("Ask any question from document" )

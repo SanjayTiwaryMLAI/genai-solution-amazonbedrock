@@ -17,11 +17,11 @@ if (
 ):
     st.set_option('deprecation.showPyplotGlobalUse', False)
     import io
-    # create logo using image on Streamlit app
     import uuid
     import sys
     from basefunction import send_response_to_s3
     import kendra_retriever_samples.kendra_chat_bedrock_claudev2 as bedrock_claudev2
+    region = "us-east-1"
     
     
     st.title("🔎 GEN AI based search using RAG" )
@@ -35,16 +35,15 @@ if (
     
     import boto3
     import time
-    s3 = boto3.client('s3', region_name="us-east-1")
+    s3 = boto3.client('s3', region_name=region)
     
     def sync_kendra_index(Id, IndexId):
-        session = boto3.session.Session(region_name="us-east-1")
+        session = boto3.session.Session(region_name=region)
         kendra_client = session.client('kendra')
         
         try:
             response = kendra_client.start_data_source_sync_job(Id= Id,IndexId= IndexId)
             print(response)
-            #wait for the sync job to complete
             while True: 
                 with st.spinner('Wait for it...'):
                         time.sleep(5)         
@@ -62,15 +61,14 @@ if (
         print(f"Sync triggered for {len(Id)} data sources")
     
     def display_file_from_s3(bucket):
-        s3 = boto3.client('s3', region_name="us-east-1")
+        s3 = boto3.client('s3', region_name=region)
         file_object = s3.list_objects(Bucket=bucket)
         for i in range(0,len(file_object["Contents"])):
             st.write(file_object["Contents"][i]["Key"])   
     
     
-    #create a button to start sync of Amazon Kendra
     index_id = "fc288b2d-5a97-4df6-983d-09b138cb90d3" 
-    id = "e17c17a2-f516-4ae0-a6fe-43d598264d78"
+    id = "1bdfc166-4d0d-4a82-9ac7-3735affb9b16"
     
     st.sidebar.markdown("## Sync Amazon Kendra")
     if st.sidebar.button("Sync Amazon Kendra"):
@@ -86,7 +84,6 @@ if (
         'llama2' : 'Llama 2'
     }
     
-    #function to read a properties file and create environment variables
     def read_properties_file(filename):
         import os
         import re
@@ -96,12 +93,9 @@ if (
                 if m:
                     os.environ[m.group(1)] = m.group(2)
     
-    
-    # Check if the user ID is already stored in the session state
     if 'user_id' in st.session_state:
         user_id = st.session_state['user_id']
     
-    # If the user ID is not yet stored in the session state, generate a random UUID
     else:
         user_id = str(uuid.uuid4())
         st.session_state['user_id'] = user_id
@@ -245,8 +239,6 @@ if (
                 for s in sources:
                     st.write(s)
     
-        
-    #Each answer will have context of the question asked in order to associate the provided feedback with the respective question
     def write_chat_message(md, q):
         chat = st.container()
         with chat:
@@ -262,7 +254,7 @@ if (
     st.markdown('---')
     input = st.text_input("You are talking to an AI, ask any question.", key="input", on_change=handle_input)
     import io
-    #create upload button from streamlit ui for uploading file to S3
+    # uploading file to S3
     st.sidebar.markdown("## Upload File")
     file = st.sidebar.file_uploader("Upload file", type=["pdf", "docx", "txt"])
     if file is not None:
@@ -271,26 +263,31 @@ if (
         # create a pdf file object
         pdf_file = io.BytesIO(pdf_data)
     
-        # save the pdf file to a file
-        with open("pdf_file.pdf", "wb") as f:
+        # get the original file name
+        original_file_name = file.name
+    
+        # extract the file extension
+        file_extension = original_file_name.split(".")[-1]
+    
+        # construct the new file name with the same name as the object
+        new_file_name = f"{original_file_name.split('.')[0]}.{file_extension}"
+    
+        # save the pdf file to a file with the same name as the object
+        with open(new_file_name, "wb") as f:
             f.write(pdf_data)
             f.close()
-            st.write("File saved to pdf_file.pdf")
-            #create function to display the uploaded pdf file in UI
+            st.write(f"File saved to {new_file_name}")  
     
     #send file to amazon S3
     if file is not None:
-        local_file_path = 'pdf_file.pdf'  # Path to your local file
-        bucket_name = 'document-tendermum'  # Name of your S3 bucket
-        s3_file_name = 'pdf_file.pdf' 
-        region = "us-east-1" # Name you want to give the file in the S3 bucket
-    
+        local_file_path = new_file_name  # Path to your local file
+        bucket_name = 'amazonqmediabucket'  # Name of your S3 bucket
+        s3_file_name = new_file_name
+        region = region # Name you want to give the file in the S3 bucket
         path= send_response_to_s3(local_file_path, bucket_name, s3_file_name,region)
-    
         st.write("file is coped to-", path)
-        #s3.upload_file(file, 'opensearchdemosanjay', 'file.pdf')
         st.success("File copied to S3")
-        display_file_from_s3("document-tendermum")  
+        display_file_from_s3("amazonqmediabucket")  
         
 
 else:
