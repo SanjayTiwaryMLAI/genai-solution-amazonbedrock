@@ -29,17 +29,17 @@ def build_chain():
   if "AWS_PROFILE" in os.environ:
     credentials_profile_name = os.environ['AWS_PROFILE']
     print("Using " + credentials_profile_name + " profile.")
-    llm = Bedrock(
+    llm = BedrockChat(
       credentials_profile_name=credentials_profile_name,
       region_name = region,
-      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
-      model_id="anthropic.claude-v2"
+      #model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0,"anthropic_version":"bedrock-2023-05-31"},
+      model_id="anthropic.claude-3-sonnet-20240229-v1:0"
     )
   else:
-    llm = Bedrock(
+    llm = BedrockChat(
       region_name = region,
-      model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0},
-      model_id="anthropic.claude-v2"
+      #model_kwargs={"max_tokens_to_sample":1000,"temperature":0.0},
+      model_id="anthropic.claude-3-sonnet-20240229-v1:0"
     )
       
   retriever = AmazonKendraRetriever(index_id=kendra_index_id,top_k=4,region_name=region)

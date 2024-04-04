@@ -3,7 +3,6 @@ from PyPDF2 import PdfReader
 import boto3
 import json
 from IPython.display import display_markdown,Markdown,clear_output
-import credential
 import tiktoken
 import base64
 import streamlit as st

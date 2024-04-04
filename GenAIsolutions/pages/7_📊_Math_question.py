@@ -32,6 +32,8 @@ if (
     st.set_option('deprecation.showPyplotGlobalUse', False)
     st.markdown("# 💡 Math question and answer using Claude3")
     st.sidebar.header("🤖 Document Analysis")
+    st.sidebar.text("Create a class in python to implement this diagram")
+    st.sidebar.text("Explain the archietcture step by step")
     
     st.sidebar.caption("streamlit chatbot powered by LLM")
     

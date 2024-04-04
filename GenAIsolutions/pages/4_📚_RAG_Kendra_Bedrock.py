@@ -21,11 +21,11 @@ if (
     import sys
     from basefunction import send_response_to_s3
     import kendra_retriever_samples.kendra_chat_bedrock_claudev2 as bedrock_claudev2
+    import kendra_retriever_samples.kendra_chat_bedrock_claudev3 as bedrock_claudev3
     region = "us-east-1"
     
     
     st.title("🔎 GEN AI based search using RAG" )
-    
     st.sidebar.title("RAG developed using Amazon Kendra and Bedrock")
     st.sidebar.caption("LLM- Anthropic Claude2")
     st.sidebar.text("Which are the APIs for milestone 1/2/3")
@@ -102,8 +102,8 @@ if (
     
     
     if 'llm_chain' not in st.session_state:
-        st.session_state['llm_app'] = bedrock_claudev2
-        st.session_state['llm_chain'] = bedrock_claudev2.build_chain()
+        st.session_state['llm_app'] = bedrock_claudev3
+        st.session_state['llm_chain'] = bedrock_claudev3.build_chain()
     
     if 'chat_history' not in st.session_state:
         st.session_state['chat_history'] = []
@@ -156,7 +156,7 @@ if (
         with col1:
             st.image(AI_ICON, use_column_width='always')
         with col2:
-            selected_provider = "bedrock_claudev2"
+            selected_provider = "bedrock_claudev3"
             if selected_provider in PROVIDER_MAP:
                 provider = PROVIDER_MAP[selected_provider]
             else:
