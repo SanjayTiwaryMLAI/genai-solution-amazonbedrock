@@ -14,28 +14,19 @@ CLIENT_ID = os.environ.get("CLIENT_ID")
 CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
 APP_URI = os.environ.get("APP_URI")
 
-# COGNITO_DOMAIN = "https://genaisanjay.auth.us-east-1.amazoncognito.com"
-# CLIENT_ID = "6avbau3bonk5478jml3hft5t9a"
-# CLIENT_SECRET = "87g8jn6l7g4n97djop45dr5rl41m7u9jfellgcsfm23j7abbmmr"
-# APP_URI = "http://3.238.176.100:8080/"
-
 # ------------------------------------
 # Initialise Streamlit state variables
 # ------------------------------------
-def initialise_st_state_vars():
-    """
-    Initialise Streamlit state variables.
-
-    Returns:
-        Nothing.
-    """
-    if "auth_code" not in st.session_state:
-        st.session_state["auth_code"] = ""
-    if "authenticated" not in st.session_state:
-        st.session_state["authenticated"] = False
-    if "user_cognito_groups" not in st.session_state:
-        st.session_state["user_cognito_groups"] = []
-
+if "auth_code" not in st.session_state:
+    st.session_state["auth_code"] = ""
+if "access_token" not in st.session_state:
+    st.session_state["access_token"] = ""
+if "id_token" not in st.session_state:
+    st.session_state["id_token"] = ""
+if "authenticated" not in st.session_state:
+    st.session_state["authenticated"] = False
+if "user_cognito_groups" not in st.session_state:
+    st.session_state["user_cognito_groups"] = []
 
 # ----------------------------------
 # Get authorization code after login
@@ -54,22 +45,6 @@ def get_auth_code():
         auth_code = ""
 
     return auth_code
-
-
-# ----------------------------------
-# Set authorization code after login
-# ----------------------------------
-def set_auth_code():
-    """
-    Sets auth_code state variable.
-
-    Returns:
-        Nothing.
-    """
-    initialise_st_state_vars()
-    auth_code = get_auth_code()
-    st.session_state["auth_code"] = auth_code
-
 
 # -------------------------------------------------------
 # Use authorization code to get user access and id tokens
@@ -116,7 +91,6 @@ def get_user_tokens(auth_code):
 
     return access_token, id_token
 
-
 # ---------------------------------------------
 # Use access token to retrieve user information
 # ---------------------------------------------
@@ -141,7 +115,6 @@ def get_user_info(access_token):
 
     return userinfo_response.json()
 
-
 # -------------------------------------------------------
 # Decode access token to JWT to get user's cognito groups
 # -------------------------------------------------------
@@ -160,7 +133,6 @@ def pad_base64(data):
     if missing_padding != 0:
         data += "=" * (4 - missing_padding)
     return data
-
 
 def get_user_cognito_groups(id_token):
     """
@@ -183,7 +155,6 @@ def get_user_cognito_groups(id_token):
             pass
     return user_cognito_groups
 
-
 # -----------------------------
 # Set Streamlit state variables
 # -----------------------------
@@ -193,16 +164,16 @@ def set_st_state_vars():
     Returns:
         Nothing.
     """
-    initialise_st_state_vars()
     auth_code = get_auth_code()
-    access_token, id_token = get_user_tokens(auth_code)
-    user_cognito_groups = get_user_cognito_groups(id_token)
+    if auth_code != "":
+        access_token, id_token = get_user_tokens(auth_code)
+        user_cognito_groups = get_user_cognito_groups(id_token)
 
-    if access_token != "":
         st.session_state["auth_code"] = auth_code
+        st.session_state["access_token"] = access_token
+        st.session_state["id_token"] = id_token
         st.session_state["authenticated"] = True
         st.session_state["user_cognito_groups"] = user_cognito_groups
-
 
 # -----------------------------
 # Login/ Logout HTML components
@@ -241,7 +212,6 @@ html_button_logout = (
     + f"<a href='{logout_link}' class='button-login' target='_self'>Log Out</a>"
 )
 
-
 def button_login():
     """
 
@@ -250,7 +220,6 @@ def button_login():
     """
     return st.sidebar.markdown(f"{html_button_login}", unsafe_allow_html=True)
 
-
 def button_logout():
     """
 
@@ -258,3 +227,14 @@ def button_logout():
         Html of the logout button.
     """
     return st.sidebar.markdown(f"{html_button_logout}", unsafe_allow_html=True)
+
+# Main function
+def main():
+    set_st_state_vars()
+
+    if st.session_state["authenticated"]:
+        st.write(f"Welcome! You are authenticated and belong to the following groups: {', '.join(st.session_state['user_cognito_groups'])}")
+        button_logout()
+    else:
+        st.write("You are not authenticated. Please log in.")
+        button_login()
